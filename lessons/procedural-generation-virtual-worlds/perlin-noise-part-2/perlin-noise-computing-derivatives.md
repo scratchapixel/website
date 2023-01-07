@@ -177,7 +177,7 @@ uv(a + d - b - c) + uw(a + f - b - e) + vw(a + g - c - e) +
 uvw(b + c + e + h - a - d - f - g)
 ```
 
-As you can see (and as expected), this is a function of three variables: \(u\), \(v\), and \(w\). Suppose we apply the technique we learned to compute the partial derivative of a funcconcerningct to one of its variables. In that case, we need to remove all the terms that do not contain the variable in question and then replace the variable with its derivative in the remaining terms. For example, if we wish to compute the noise function partial derivative concerning \(u\), we get:
+As you can see (and as expected), this is a function of three variables: \(u\), \(v\), and \(w\). Suppose we apply the technique we learned to compute the partial derivative of a function with respect to one of its variables. In that case, we need to remove all the terms that do not contain the variable in question and then replace the variable with its derivative in the remaining terms. For example, if we wish to compute the noise function partial derivative with respect to \(u\), we get:
 
 ```
 u'(b - a) +

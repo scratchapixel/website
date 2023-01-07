@@ -78,7 +78,7 @@ Keep in mind that the values of the Perlin noise are in the range from [-1,1]. B
 
 If you render this mesh with the noise image applied on top as a texture, you should get something similar to the first image of this chapter. Note how the white/bright area of the noise image corresponds to bumps in the mesh, while dark regions of the image correspond to dents or valleys (and note how the displacement is proportional to the pixel values).
 
-As mentioned in the introduction of this chapter, you can use more interesting procedural patterns to displace the mesh vertices, such as a fractal pattern which can be constructed as a weighted sum of noise layers. Check the [previous lesson on noise](/lessons/procedural-generation-vritual-worlds%20/procedural-patterns-noise-part-1/simple-pattern-examples) to learn how to generate a fractal pattern using the noise function as a building block. Here is the code to generate the fractal image that was used to displace the mesh:
+As mentioned in the introduction of this chapter, you can use more interesting procedural patterns to displace the mesh vertices, such as a fractal pattern which can be constructed as a weighted sum of noise layers. Check the [previous lesson on noise](/lessons/procedural-generation-virtual-worlds/procedural-patterns-noise-part-1/simple-pattern-examples) to learn how to generate a fractal pattern using the noise function as a building block. Here is the code to generate the fractal image that was used to displace the mesh:
 
 ```
 uint32_t numLayers = 5; 

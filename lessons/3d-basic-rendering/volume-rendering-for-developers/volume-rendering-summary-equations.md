@@ -89,7 +89,7 @@ So our mission is to figure out what \(L(x, \omega)\) is using the equation \(dL
 $$\frac {dL(s)}{ds} = -\sigma_a L(s)$$The derivative here (the left-hand side of the equation) is written using the Leibniz notation form. The term in the denominator is very important. You should read the left-hand part as "the derivative of the function L(s) with respect to \(s\)." In human language that means "at what rate does L(s) change as \(s\) changes".
 
 <details>
-To learn more about derivatives, please refer to the lesson [The Mathematics of Shading](lessons/mathematics-physics-for-computer-graphics/mathematics-of-shading).
+To learn more about derivatives, please refer to the lesson [The Mathematics of Shading](/lessons/mathematics-physics-for-computer-graphics/mathematics-of-shading/).
 </details>
 
 To find L(s) you could write:
@@ -128,7 +128,7 @@ You might find it strange that we take the integral of a derivative \(dy\) "divi
 $$\int \frac {1}{y} dy = \int c dx$$
 
 <details>
-We always take the integral of a function with respect to some variable. For example, if we want to write that we would like to take the integral of a function \(f(x)\) with respect to \(x\) we should use the following notation: $\int f(x) dx$ the integral operator has a left symbol \(\int\) and a right symbol \(dx\). If you are still unfamiliar with derivatives, we recommend that you read the lesson [The Mathematics of Shading](lessons/mathematics-physics-for-computer-graphics/mathematics-of-shading). You will also find a lot of very good places on the Internet to learn about derivatives.
+We always take the integral of a function with respect to some variable. For example, if we want to write that we would like to take the integral of a function \(f(x)\) with respect to \(x\) we should use the following notation: $\int f(x) dx$ the integral operator has a left symbol \(\int\) and a right symbol \(dx\). If you are still unfamiliar with derivatives, we recommend that you read the lesson [The Mathematics of Shading](/lessons/mathematics-physics-for-computer-graphics/mathematics-of-shading/). You will also find a lot of very good places on the Internet to learn about derivatives.
 </details>
 
 The derivative of the \(\ln(y)\) is 1 over \(y\). So the integral of 1 over \(y\) with respect to \(y\) is the natural logarithm of the function \(y\), \(\ln(y)\):
@@ -229,11 +229,11 @@ Where \(d\) is the distance traveled by the ray through the volume. The final an
 
 $$T(d) = exp \big(-\int_{s=0}^d \sigma_t(x_s) ds \big)$$
 
-if you read the previous chapters, you maybe remember that we encountered the term "tau" in the chapter [Volume Rendering of a 3D Density Field](lessons/3d-basic-rendering/volume-rendering-for-developers/volume-rendering-3D-density-field#tau). In this chapter, we used it to accumulate the extinction coefficient values as light rays pass through a heterogeneous medium.
+if you read the previous chapters, you maybe remember that we encountered the term "tau" in the chapter [Volume Rendering of a 3D Density Field](/lessons/3d-basic-rendering/volume-rendering-for-developers/volume-rendering-3D-density-field). In this chapter, we used it to accumulate the extinction coefficient values as light rays pass through a heterogeneous medium.
 
 ## In-scattering and the phase function
 
-Finally, the last piece of the puzzle we need to put together a global equation that defines how light energy propagates through a medium is the phase function. We already introduced the concept of phase function in the chapter [Ray Marching: Getting it Right!](lessons/3d-basic-rendering/volume-rendering-for-developers/ray-marching-get-it-right#phase-function).
+Finally, the last piece of the puzzle we need to put together a global equation that defines how light energy propagates through a medium is the phase function. We already introduced the concept of phase function in the chapter [Ray Marching: Getting it Right!](/lessons/3d-basic-rendering/volume-rendering-for-developers/ray-marching-get-it-right).
 
 ![Figure 1: only a fraction of the incoming light is scattered toward the eye. How much depends on the angle between the light and the view direction.](/images/volume-rendering-developers/voldev-phasefunction-theory2.png)
 
@@ -265,12 +265,12 @@ Here is the phase function for an isotropic medium:
 
 $$f_p(x,\omega,\omega') = \frac{1}{4 \pi}.$$
 
-In the chapter [Ray-Marching: Getting it Right!](lessons/3d-basic-rendering/volume-rendering-for-developers/ray-marching-get-it-right#phase-function) we already introduced the Henyey-Greenstein or HG phase function, one of the most commonly used anisotropic phase functions. The function only depends on the angle \(\theta\) and is defined as:
+In the chapter [Ray-Marching: Getting it Right!](/lessons/3d-basic-rendering/volume-rendering-for-developers/ray-marching-get-it-right) we already introduced the Henyey-Greenstein or HG phase function, one of the most commonly used anisotropic phase functions. The function only depends on the angle \(\theta\) and is defined as:
 
 $$f_p(x,\theta) = \frac{1}{4 \pi} \frac{1 - g^2}{(1 + g^2 - 2 g \cos \theta)^{\frac{3}{2}}}.$$
 
 <details>
-For proof that this equation is normalized, see [Ray Marching: Getting it Right!](lessons/3d-basic-rendering/volume-rendering-for-developers/ray-marching-get-it-right#phase-function).
+For proof that this equation is normalized, see [Ray Marching: Getting it Right!](/lessons/3d-basic-rendering/volume-rendering-for-developers/ray-marching-get-it-right).
 </details>
 
 It was initially designed to model the scattering of light by intergalactic dust (Henyey, L.C. and J.L. Greenstein. 1941. Diffuse radiation in the galaxy. Astrophysical Journal 93, 70-83) but due to its simplicity, it has also been applied for simulating many other scattering materials. For production purposes, while simple, this function is generally good enough (furthermore, to simulate multiple scattering, the phase function needs to be inverted and this can easily be done with this equation).
@@ -480,10 +480,10 @@ The big question is now: how do we calculate this integral (and no, the answer i
 
 We understand the equations can be overwhelming and that some readers will only care about how they translate into code. The first four chapters of this lesson will take you through that journey so we won't be going through this exercise here again. We recommend you go through the first chapters of this lesson if you haven't done so already. But here are some pointers to help you connect the different parts of the equation to the various chapters.
 
-- The L(0)T(s) term alludes to what we learned in the first chapter of this lesson. L(0) simply accounts for the light that is being reflected by a solid object for instance, such as the red wall in the image below, passing through the volume. That light (the object's color) is simply attenuated by T(s), where s is the distance traveled by the light through the volume, and T is simply the Beer Law. If the object is homogeneous, this is simply \(T(s) = exp(-s * \sigma_t)\). See [chapter 1](lessons/3d-basic-rendering/volume-rendering-for-developers/intro-volume-rendering) for this part. If the volume is heterogeneous, you will need to calculate the volume optical thickness as described in [chapter 3](lessons/3d-basic-rendering/volume-rendering-for-developers/volume-rendering-3D-density-field). The equation is \(T(s) = exp(- \int_{t=0}^s \sigma_t(x_t) dt)\). If we only consider this term, the volume sphere remains black as shown in the image below. This term is only responsible for the light coming from the background and passing through the volume.
+- The L(0)T(s) term alludes to what we learned in the first chapter of this lesson. L(0) simply accounts for the light that is being reflected by a solid object for instance, such as the red wall in the image below, passing through the volume. That light (the object's color) is simply attenuated by T(s), where s is the distance traveled by the light through the volume, and T is simply the Beer Law. If the object is homogeneous, this is simply \(T(s) = exp(-s * \sigma_t)\). See [chapter 1](/lessons/3d-basic-rendering/volume-rendering-for-developers/intro-volume-rendering) for this part. If the volume is heterogeneous, you will need to calculate the volume optical thickness as described in [chapter 3](/lessons/3d-basic-rendering/volume-rendering-for-developers/volume-rendering-3D-density-field). The equation is \(T(s) = exp(- \int_{t=0}^s \sigma_t(x_t) dt)\). If we only consider this term, the volume sphere remains black as shown in the image below. This term is only responsible for the light coming from the background and passing through the volume.
 
 ![](/images/volume-rendering-developers/voldev-L0term.png?)
 
-- The first term on the right-hand side of the equation, this bit \(\int_{t=0}^s T(t)\big[\sigma_s(x_t) L_s(x_t,\omega) \big]dt\), simply accounts for the single scattering term. To see how this translate into code, please read from [chapter 1](lessons/3d-basic-rendering/volume-rendering-for-developers/intro-volume-rendering) through [chapter 3](lessons/3d-basic-rendering/volume-rendering-for-developers/volume-rendering-3D-density-field). This term is responsible for the sphere illumination.
+- The first term on the right-hand side of the equation, this bit \(\int_{t=0}^s T(t)\big[\sigma_s(x_t) L_s(x_t,\omega) \big]dt\), simply accounts for the single scattering term. To see how this translate into code, please read from [chapter 1](/lessons/3d-basic-rendering/volume-rendering-for-developers/intro-volume-rendering) through [chapter 3](/lessons/3d-basic-rendering/volume-rendering-for-developers/volume-rendering-3D-density-field). This term is responsible for the sphere illumination.
 
 ![](/images/volume-rendering-developers/voldev-single-scatter-term.png?)

@@ -17,7 +17,7 @@ Var(X)& = & E[(X-E[X])^2],\\
 \end{array}
 $$
 
-We will be using these formulas further down, so it is also important that you understand them (they are explained in the lesson [Mathematical Foundations of Monte Carlo Methods](/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-mathematical-foundations)).
+We will be using these formulas further down, so it is also important that you understand them (they are explained in the lesson [Mathematical Foundations of Monte Carlo Methods](/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-mathematical-foundations/)).
 
 ![Figure 1: the integral over the domain [a,b] can be seen as the area under the curve.](/images/monte-carlo-methods-practice/MCIntegration01.png?)
 
@@ -48,7 +48,7 @@ It is important here to note that:
 
 $Pr(\lim_{ N \to \infty} \langle F^N \rangle = F ) = 1.$
 
-The law of large numbers which we talked about in the lesson [Mathematical Foundations of Monte Carlo Methods](/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-mathematical-foundations), tells us that as N approaches infinity, our Monte Carlo approximation converges (in probability) to the right answer (the probability is 1).
+The law of large numbers which we talked about in the lesson [Mathematical Foundations of Monte Carlo Methods](/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-mathematical-foundations/), tells us that as N approaches infinity, our Monte Carlo approximation converges (in probability) to the right answer (the probability is 1).
 !!!
 
 Note also that \(\langle F^N \rangle\) is a random variable since it's made up of a sum of random numbers. We can now proof that the expected value of \(\langle F^N \rangle \) is equal to F:

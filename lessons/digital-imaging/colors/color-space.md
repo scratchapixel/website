@@ -35,7 +35,7 @@ $$\begin{array}{l} X={\dfrac{1}{\int Y(\lambda)d \lambda}} \int_\lambda S_e(\lam
 Where \(S_e(\lambda)\) represent the emission spectrum (whether from the light or from the material) and is called (in radiometry) the **spectral intensity**.
 
 <details>
-The symbol \(\int\) denotes what we call in mathematics an integral. If you don't know what an integral is, check the chapter ["The Mathematics of Shading"](/lessons/mathematics-physics-for-computer-graphics/mathematics-of-shading) in the Mathematics and Physics for Computer Graphics section.
+The symbol \(\int\) denotes what we call in mathematics an integral. If you don't know what an integral is, check the chapter ["The Mathematics of Shading"](/lessons/mathematics-physics-for-computer-graphics/mathematics-of-shading/) in the Mathematics and Physics for Computer Graphics section.
 </details>
 
 Usually the spectrum and the color-matching functions are discrete (defined by a series of samples); they are not represented as a function defining a continuous curve, but as a series of discrete samples or points which we can "connect" to each other to make a curve. If the data color matching functions, the spectrum data cover the same range of wavelengths (for example from 380 to 780) and the number of points is the same (we have one sample every 5 nm starting at 380 nm and finishing at 780 nm which makes 81 samples), then we can then compute XYZ using the following code (we will explain this code later in this chapter):
@@ -205,7 +205,7 @@ Where \(I\) is the illuminant's normalized spectral power distribution. For this
 
 ![](/images/color/reflectancetoxyz.png)
 
-Finally, to visualise our results, we will save the colors to an image file (to learn how to save an image file to disk, check the lesson on [Digital Images: from File to Screen](/lessons/digital-imaging/digital-images)). The complete code for this exercice is available in the Soure Code chapter. The result of the program is showed in Figure 8. Compare this result to the photograph of the real Macbeth chart (Figure 7). For this introduction on colors, we just wanted to give a simple example to better help readers understand the basic (and simple) process of converting spectral data (which can't be displayed on the screen) to RGB values (which can be displayed on the screen).
+Finally, to visualise our results, we will save the colors to an image file (to learn how to save an image file to disk, check the lesson on [Digital Images: from File to Screen](/lessons/digital-imaging/digital-images/)). The complete code for this exercice is available in the Soure Code chapter. The result of the program is showed in Figure 8. Compare this result to the photograph of the real Macbeth chart (Figure 7). For this introduction on colors, we just wanted to give a simple example to better help readers understand the basic (and simple) process of converting spectral data (which can't be displayed on the screen) to RGB values (which can be displayed on the screen).
 
 ![Figure 9: spectral curves for two colors from the Macbeth chart (the light skin and blue sky colors).](/images/color/macbethSPD.png)
 

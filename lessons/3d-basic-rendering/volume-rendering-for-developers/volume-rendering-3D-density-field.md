@@ -20,7 +20,7 @@ In this chapter, we will use the first approach. In the next chapter, we will le
 
 ![Figure 1: we can use a Perlin noise to procedurally generate a density field. The noise function takes a point as an argument and returns a noise value for that point in the range [-1,1].](/images/volume-rendering-developers/voldev-noisedensity.png)
 
-In this lesson, we will be using the Perlin noise function to generate a 3D density field procedurally. If you are unfamiliar with the concept of procedural noise generation we recommend that you read the following two lessons: [Value Noise and Procedural Patterns (Part 1)](lessons/procedural-generation-virtual-worlds/procedural-patterns-noise-part-1) and [Perlin Noise (Part 2)](lessons/procedural-generation-virtual-worlds/perlin-noise-part-2).
+In this lesson, we will be using the Perlin noise function to generate a 3D density field procedurally. If you are unfamiliar with the concept of procedural noise generation we recommend that you read the following two lessons: [Value Noise and Procedural Patterns (Part 1)](/lessons/procedural-generation-virtual-worlds/procedural-patterns-noise-part-1/) and [Perlin Noise (Part 2)](/lessons/procedural-generation-virtual-worlds/perlin-noise-part-2/).
 
 What is a procedural noise function (in this case the Perlin noise function)? It's a function (in the programmatic sense of the term) that procedurally generates a noise pattern through 3D space. We can use this pattern to generate a density field whose values vary through space. The noise function takes a point as an argument and returns the value of the 3D noise texture at that point (a real number like a float or a double). This value is bound to the range [-1,1]. Density can either be 0 (no volume) or positive so we will need to either clip or remap the values of the noise function to get positive values for the densities. In the following code snippet, we remap the values from [-1,1] to [0,1]:
 
@@ -30,7 +30,7 @@ float density = (noise(pSample) + 1) * 0.5;
 
 Where `pSample` here is the position of a sample along the camera ray as we march through the volume.
 
-For the noise function, we will be using the implementation of the improved Perlin noise provided by Ken Perlin himself ([link](https://rosettacode.org/wiki/Perlin_noise#C)). Again, you can learn how and why this code works in the lesson devoted to [Perlin Noise (Part 2)](lessons/procedural-generation-virtual-worlds/perlin-noise-part-2) if you are interested. But in this particular lesson, we will assume that you are familiar with the function. If you don't, don't worry too much. All you need to care about is that you pass to the function the position of the point in 3D space where you want the function to be evaluated, and it returns for that point a value in the range [-1,1]. Here is the code for reference (check the file provided in the source code section to get the full implementation):
+For the noise function, we will be using the implementation of the improved Perlin noise provided by Ken Perlin himself ([link](https://rosettacode.org/wiki/Perlin_noise#C)). Again, you can learn how and why this code works in the lesson devoted to [Perlin Noise (Part 2)](/lessons/procedural-generation-virtual-worlds/perlin-noise-part-2/) if you are interested. But in this particular lesson, we will assume that you are familiar with the function. If you don't, don't worry too much. All you need to care about is that you pass to the function the position of the point in 3D space where you want the function to be evaluated, and it returns for that point a value in the range [-1,1]. Here is the code for reference (check the file provided in the source code section to get the full implementation):
 
 ```
 int p[512]; // permutation table (see source code)
@@ -229,7 +229,7 @@ for (n = 0; n < numSteps; ++n) {
 
 ![](/images/volume-rendering-developers/voldev-noisedensity-fig3.png)
 
-The name "tau" is not chosen by mistake. You will often see it being used in the literature to denote a quantity called the **optical depth**. Two Greek letters are often used for this quantity: either tau (\(\tau\)) or rho (\(\rho\)). We won't give a formal definition of what the optical depth is in this chapter, as this might be confusing at this point. But we do in the chapter [Volume Rendering: Summary, Equations / Theory](lessons/3d-basic-rendering/volume-rendering-for-developers/volume-rendering-summary-equations#optical-depth).
+The name "tau" is not chosen by mistake. You will often see it being used in the literature to denote a quantity called the **optical depth**. Two Greek letters are often used for this quantity: either tau (\(\tau\)) or rho (\(\rho\)). We won't give a formal definition of what the optical depth is in this chapter, as this might be confusing at this point. But we do in the chapter [Volume Rendering: Summary, Equations / Theory](/lessons/3d-basic-rendering/volume-rendering-for-developers/volume-rendering-summary-equations).
 
 That's it! Now you have everything you need to render an accurate image of heterogeneous volume objects. This last figure shows what the transmission curve looks like for a given noise profile.
 

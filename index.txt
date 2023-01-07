@@ -7,6 +7,7 @@ mathematics-physics-for-computer-graphics/mathematics-of-shading/*
 mathematics-physics-for-computer-graphics/monte-carlo-methods-mathematical-foundations/*
 mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/*
 mathematics-physics-for-computer-graphics/quaternion/
+mathematics-physics-for-computer-graphics/fourier-transform/*
 
 @3D Rendering for Beginners:Best read in chronological order (top to bottom).
 3d-basic-rendering/introduction-to-ray-tracing/*
@@ -34,12 +35,12 @@ mathematics-physics-for-computer-graphics/quaternion/
 @Geometry:Methods to define shapes in computer graphics.
 geometry/bezier-curve-rendering-utah-teapot/*
 
-@Digital Imaging:Saving and reading images to/from disk, image file format, color spaces, color managmenent and simple image processing. 
+@Digital Imaging:Saving and reading images to/from disk, image file format, color spaces, color management, and simple image processing. 
 digital-imaging/colors/*
 digital-imaging/digital-images/*
 digital-imaging/simple-image-manipulations/*
 
-@Procedural Generation of Virtual Worlds:Pocedural simulation of natural phenonema.
+@Procedural Generation of Virtual Worlds:Pocedural simulation of natural phenomena.
 procedural-generation-virtual-worlds/procedural-patterns-noise-part-1/*
 procedural-generation-virtual-worlds/perlin-noise-part-2/*
 procedural-generation-virtual-worlds/simulating-sky/*

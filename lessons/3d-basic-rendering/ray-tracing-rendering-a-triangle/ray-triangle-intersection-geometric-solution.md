@@ -10,7 +10,7 @@ We know that P is somewhere on the ray defined by its origin \(O\) and its direc
 
 $$P=O + tR.$$
 
-Where \(t\) is the distance from the ray origin \(O\) to P. To find P, we must find \(t\) (Figure 1). What else do we know? We know the plane's normal, which we have already computed, and the plane equation (2), which is (check the chapter on the ray-plane intersection from the [previous lesson](/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-plane-and-ray-disk-intersection/) for more information on this topic):
+Where \(t\) is the distance from the ray origin \(O\) to P. To find P, we must find \(t\) (Figure 1). What else do we know? We know the plane's normal, which we have already computed, and the plane equation (2), which is (check the chapter on the ray-plane intersection from the [previous lesson](/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-plane-and-ray-disk-intersection) for more information on this topic):
 
 $$
 \begin{array}{l}

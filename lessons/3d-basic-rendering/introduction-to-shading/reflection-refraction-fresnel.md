@@ -23,7 +23,7 @@ R &=& A - B.
 \end{array} 
 $$
 
-The vector \(B\) can easily be computed. It is the projection of the vector \(I\) or \(R\) onto the vector \(N\). As explained in the lesson on [geometry](lessons/mathematics-physics-for-computer-graphics/geometry/math-operations-on-points-and-vectors), this can be computed using the following equation:
+The vector \(B\) can easily be computed. It is the projection of the vector \(I\) or \(R\) onto the vector \(N\). As explained in the lesson on [geometry](/lessons/mathematics-physics-for-computer-graphics/geometry/math-operations-on-points-and-vectors), this can be computed using the following equation:
 
 $$B = \cos(\theta) * N.$$
 
@@ -58,7 +58,7 @@ A reflection of a light ray can only be seen if the reflected ray direction is t
 
 ![](/images/shading-intro/shad-glitter.png?)
 
-The fact that the reflected image of the objects in the scene from which these light rays are emitted changes with the view direction is the reason why we say that reflection is **view-dependent**. If you look at the reflection of a static object in the mirror and change direction, you will see that the image of that object changes. This is something that we find natural when we look at an object from a different angle, but that we find maybe less natural when we change our position with respect to a mirror reflecting that same object, though the reason why this is happening is essentially the same. We look at a different part of the object. By opposition, we say that diffuse reflections are **view independent** because they don't vary with the angle of view as explained in the chapter on [Lambertian material](lessons/3d-basic-rendering/introduction-to-shading/diffuse-Lambertian-shading).
+The fact that the reflected image of the objects in the scene from which these light rays are emitted changes with the view direction is the reason why we say that reflection is **view-dependent**. If you look at the reflection of a static object in the mirror and change direction, you will see that the image of that object changes. This is something that we find natural when we look at an object from a different angle, but that we find maybe less natural when we change our position with respect to a mirror reflecting that same object, though the reason why this is happening is essentially the same. We look at a different part of the object. By opposition, we say that diffuse reflections are **view independent** because they don't vary with the angle of view as explained in the chapter on [Lambertian material](/lessons/3d-basic-rendering/introduction-to-shading/diffuse-lambertian-shading).
 
 ![Figure 4: if the surface that the primary ray intersects is a mirror we then cast a ray in the reflection direction. The shaded point \(P\) either takes on the color of the background if the reflection ray didn't intersect any geometry or the color of the object that the reflection ray intersected otherwise.](/images/shading-intro/shad-reflection5.png?)
 

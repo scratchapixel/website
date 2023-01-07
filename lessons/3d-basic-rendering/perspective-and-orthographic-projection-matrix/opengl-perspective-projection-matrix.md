@@ -11,7 +11,7 @@ $$
 \end{array}\right]
 $$
 
-What similarities does this matrix have with the matrix we studied in the previous chapter? First, it is important to remember that matrices in OpenGL are defined using a column-major order (as opposed to row-major order). In the lesson on [Geometry](lessons/mathematics-physics-for-computer-graphics/geometry/row-major-vs-column-major-vector), we have explained that to go from one order to the other we can simply transpose the matrix. If we were transposing the above matrix we would get:
+What similarities does this matrix have with the matrix we studied in the previous chapter? First, it is important to remember that matrices in OpenGL are defined using a column-major order (as opposed to row-major order). In the lesson on [Geometry](/lessons/mathematics-physics-for-computer-graphics/geometry/row-major-vs-column-major-vector), we have explained that to go from one order to the other we can simply transpose the matrix. If we were transposing the above matrix we would get:
 
 $$
 \left[\begin{array}{cccc}
@@ -59,11 +59,11 @@ $$Ps_x =\dfrac{n * P_x}{-P_z}.$$
 
 ![Figure 2: the frustum or viewing volume of a camera is defined by the camera's field of view, the near and far clipping planes, and the image aspect ratio. In OpenGL, points are projected on the front face of the frustum (the near clipping plane)](/images/perspective-matrix/projectionOpenGL2.png?)
 
-Now that we have two values for \(Ps_x\) and \(Ps_y\) we still need to explain how they relate to the OpenGL perspective matrix. The goal of a projection matrix is to remap the values projected onto the image plane to a unit cube (a cube whose minimum and maximum extents are (-1,-1,-1) and (1,1,1) respectively). However, once the point P is projected on the image plane, Ps is visible if its x- and y- coordinates are contained within the range [left, right] for x and [bottom, top] for y. This is illustrated in figure 2. We have already explained in the lesson [3D Viewing: the Pinhole Camera Model](lessons/3d-basic-rendering/3d-viewing-pinhole-camera/implementing-virtual-pinhole-camera) how these left, right, bottom top coordinates are computed but we will explain this again in this chapter. These screen coordinates define the limits or boundaries on the image plane of the visible points (all the points contained in the viewing frustum and projected on the image plane). If we assume that \(Ps_x\) is visible, then we can write:
+Now that we have two values for \(Ps_x\) and \(Ps_y\) we still need to explain how they relate to the OpenGL perspective matrix. The goal of a projection matrix is to remap the values projected onto the image plane to a unit cube (a cube whose minimum and maximum extents are (-1,-1,-1) and (1,1,1) respectively). However, once the point P is projected on the image plane, Ps is visible if its x- and y- coordinates are contained within the range [left, right] for x and [bottom, top] for y. This is illustrated in Figure 2. We have already explained in the lesson [3D Viewing: the Pinhole Camera Model](/lessons/3d-basic-rendering/3d-viewing-pinhole-camera/implementing-virtual-pinhole-camera) how these left, right, bottom top coordinates are computed but we will explain this again in this chapter. These screen coordinates define the limits or boundaries on the image plane of the visible points (all the points contained in the viewing frustum and projected on the image plane). If we assume that \(Ps_x\) is visible, then we can write:
 
 $$l \leq Ps_x \leq r.$$
 
-where \(l\) and \(r\) and the left and right coordinates respectively. Our goal now is to remap the term in the middle (\(Ps_x\)) such that the final value lies in the range [-1,1] (the dimension of the unit cube along the x-axis). We have already introduced these equations in the [previous lesson](lessons/3d-basic-rendering/rasterization-practical-implementation/projection-stage) but we will write them down one more time. Let's start by removing \(l\) from all the terms and re-write the above equation as:
+where \(l\) and \(r\) and the left and right coordinates respectively. Our goal now is to remap the term in the middle (\(Ps_x\)) such that the final value lies in the range [-1,1] (the dimension of the unit cube along the x-axis). We have already introduced these equations in the [previous lesson](/lessons/3d-basic-rendering/rasterization-practical-implementation/projection-stage) but we will write them down one more time. Let's start by removing \(l\) from all the terms and re-write the above equation as:
 
 $$0 \leq Ps_x - l \leq r - l.$$
 
@@ -122,7 +122,7 @@ Computing \(Ps_x\) using this matrix gives:
 $$Ps_x = { \dfrac{2n}{ r-l } } P_x + 0 * P_y + { \dfrac{r + l}{ r-l } } * P_z + 0 * P_w.$$
 
 <details>
-You should be familiar with the concept of matrix-vector multiplication at this point as well as the concept of row vs. column-major vectors and matrices. In short because in this particular example, we use a column-major vector notation (that's the convention used by OpenGL not by Scratchapixel - we prefer the row-major notation) to compute the transformed coordinate of the first coordinate (x) you need to use the coefficient of the matrix first row and the vector's coordinates in the following way: $Px_{transform} = M_{00} * Px + M_{01} * Py + M_{02} * Pz + M_{03} * Pw.$ If you are not familiar with these concepts read the lesson on [Geometry](lessons/mathematics-physics-for-computer-graphics/geometry).
+You should be familiar with the concept of matrix-vector multiplication at this point as well as the concept of row vs. column-major vectors and matrices. In short because in this particular example, we use a column-major vector notation (that's the convention used by OpenGL not by Scratchapixel - we prefer the row-major notation) to compute the transformed coordinate of the first coordinate (x) you need to use the coefficient of the matrix first row and the vector's coordinates in the following way: $Px_{transform} = M_{00} * Px + M_{01} * Py + M_{02} * Pz + M_{03} * Pw.$ If you are not familiar with these concepts read the lesson on [Geometry](/lessons/mathematics-physics-for-computer-graphics/geometry/).
 </details>
 
 And since \(Ps_x\) will be divided at the end of the process by \(-P_z \) when we will convert Ps from homogeneous to cartesian coordinates, we get:

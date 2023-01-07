@@ -68,7 +68,7 @@ int main(int argc, char ** argv)
 } 
 ```
 
-We now have **the number of trains (divided by the total amount of trains) arriving within a certain time difference concerning the average time**. In probability, this is our **probability distribution function** (and because these are probabilities, if you sum them all up, you should get 1, which you can verify by running the program above). In other words, the result **gives us the probability that a train arrives 5, 4, 3, 2, 1 too soon, on time or 1, 2, 3, 4, or 5 minutes too late**. When we did this exercise before with real traffic data (see figure above), we found out that this curve (or graph) had the shape of a standard normal distribution function. If our simulation does the right thing (that is, if it produces data similar to real-world data which is the ultimate goal of any simulation), it should normally have the same probability distribution. Let's plot the data and look at the graph (the result of line 23):
+We now have **the number of trains (divided by the total amount of trains) arriving within a certain time difference with respect to the average time**. In probability, this is our **probability distribution function** (and because these are probabilities, if you sum them all up, you should get 1, which you can verify by running the program above). In other words, the result **gives us the probability that a train arrives 5, 4, 3, 2, 1 too soon, on time or 1, 2, 3, 4, or 5 minutes too late**. When we did this exercise before with real traffic data (see figure above), we found out that this curve (or graph) had the shape of a standard normal distribution function. If our simulation does the right thing (that is, if it produces data similar to real-world data which is the ultimate goal of any simulation), it should normally have the same probability distribution. Let's plot the data and look at the graph (the result of line 23):
 
 ![](/images/monte-carlo-methods/invsampling02.png?)
 
@@ -350,7 +350,7 @@ $$
 $$
 </details>
 
-If you don't remember how we can integrate function using the second law of calculus, check the chapter [The Mathematics of Shading](lessons/mathematics-physics-for-computer-graphics/mathematics-of-shading#integral-calculus). Remember that the antiderivative of the exponential function is the exponential function itself (a quite extraordinary function indeed) and \( e^{-\infty} = 0\). Now, in most cases (at least in CG), we will be more interested in the probability of the random variable X being lower than t. We can write:
+If you don't remember how we can integrate function using the second law of calculus, check the chapter [The Mathematics of Shading](/lessons/mathematics-physics-for-computer-graphics/mathematics-of-shading/). Remember that the antiderivative of the exponential function is the exponential function itself (a quite extraordinary function indeed) and \( e^{-\infty} = 0\). Now, in most cases (at least in CG), we will be more interested in the probability of the random variable X being lower than t. We can write:
 
 $$P(X < t) = 1 - \lambda e^{-\lambda x}.$$
 

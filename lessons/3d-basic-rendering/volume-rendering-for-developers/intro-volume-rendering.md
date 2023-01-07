@@ -6,7 +6,7 @@ True to the way we teach things on Scratchapixel, we chose a "bottom-up" approac
 
 Several lessons will be devoted to volume rendering (it is a vast topic). In this introductory lesson, we will study the foundations of volume rendering and ray-marching. The next lessons will be devoted to other possible methods for rendering volumes, global illumination applied to participating medium, multiple scattering, formats used to store volume data such as OpenVDB, etc.
 
-If you are interested in volume rendering, you might also want to check the lesson [Simulating the Colors of the Sky](/lessons/procedural-generation-virtual-worlds/simulating-sky). The sky is a kind of volume.
+If you are interested in volume rendering, you might also want to check the lesson [Simulating the Colors of the Sky](/lessons/procedural-generation-virtual-worlds/simulating-sky/). The sky is a kind of volume.
 
 ## Introduction
 
@@ -194,7 +194,7 @@ As we just said, the result of an integral (which is a number) is defined to be 
 
 <details>
 <summary>Going further.</summary>
-You can find more information on integrals and how to compute them in the lesson ["Mathematics of Shading"](/lessons/mathematics-physics-for-computer-graphics/mathematics-of-shading).
+You can find more information on integrals and how to compute them in the lesson ["Mathematics of Shading"](/lessons/mathematics-physics-for-computer-graphics/mathematics-of-shading/).
 </details>
 
 So how does it translate into code?

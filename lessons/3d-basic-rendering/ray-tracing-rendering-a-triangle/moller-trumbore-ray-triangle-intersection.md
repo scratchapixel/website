@@ -291,7 +291,7 @@ $$pvec.z = 0*0 - (1 * 1) = -1,$$
 
 and `pvec = (0,0,-1)`. The determinant is, in this case, negative.
 
-In the original implementation of the algorithm (which you can find in the original paper, see reference below), the code can be either compiled to handle culling or ignored. When culling is active, rays intersecting triangles from behind will be discarded. This can easily be verified using the sign of the determinant. If culling is on and the determinant is lower than 0, then the ray doesn't intersect the triangle. However, when culling is off, we want to intersect triangles regardless of the normal orientation concerning the ray direction.
+In the original implementation of the algorithm (which you can find in the original paper, see reference below), the code can be either compiled to handle culling or ignored. When culling is active, rays intersecting triangles from behind will be discarded. This can easily be verified using the sign of the determinant. If culling is on and the determinant is lower than 0, then the ray doesn't intersect the triangle. However, when culling is off, we want to intersect triangles regardless of the normal orientation with resepct to the ray direction.
 
 ```
 int intersect_triangle(...)

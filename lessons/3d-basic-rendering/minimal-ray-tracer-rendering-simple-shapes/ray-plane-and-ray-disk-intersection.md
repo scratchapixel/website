@@ -2,11 +2,11 @@
 
 ![Figure 1: ray-plane intersection.](/images/ray-simple-shapes/plane.png?)
 
-In this chapter, we will learn how to compute the intersection of a ray with a plane and a disk. We know from the lesson on Geometry that the dot (or scalar) product of two vectors that are perpendicular to each other is always equal to 0:
+In this chapter, we will learn how to calculate the intersection of a ray with a plane and a disk. We know from the lesson on Geometry that the dot (or scalar) product of two vectors that are perpendicular to each other is always equal to 0:
 
 $$A \cdot B = 0$$
 
-Again this is only true if A and B are perpendiculars. A plane can be defined as a point representing how far the plane is from the world's origin and a normal (defining the orientation of the plane). Let's call this point \(p_0\) and the plane normal \(n\). A vector can be computed from any point on the plane by subtracting \(p_0\) from this point which we will call \(p\). Since the vector resulting from this subtraction lies in the plane, it should be perpendicular to the plane's normal, thus using the property that the dot product of two perpendicular vectors is equal to 0, we can write (equation 1):
+Again this is only true if A and B are perpendicular. A plane can be defined as a point representing how far the plane is from the world's origin and a normal (defining the orientation of the plane). Let's call this point \(p_0\) and the plane normal \(n\). A vector can be calculated from any point on the plane by subtracting \(p_0\) from this point which we will call \(p\). Since the vector resulting from this subtraction lies in the plane, it should be perpendicular to the plane's normal, thus using the property that the dot product of two perpendicular vectors is equal to 0, we can write (equation 1):
 
 $$(p - p_0) \cdot n = 0$$
 
@@ -14,11 +14,11 @@ Similarly, a ray can be defined using the following parametric form (equation 2)
 
 $$l_0 + l * t = p$$
 
-where \(l_0\) is the origin of the ray and \(l\) is the ray direction. This only means that we can compute the position of any point along the ray from the ray's origin, its direction, and the term \(t\) which is a positive real number (which as usual, is the parametric distance from the origin of the ray to the point of interest along the ray). If the ray and the plane intersect, then they share a point, the point where the line intersects the plane. If this point is \(p\), we can insert equation 2 in equation 1, and we get:
+where \(l_0\) is the origin of the ray and \(l\) is the ray direction. This only means that we can calculate the position of any point along the ray from the ray's origin, its direction, and the term \(t\), which is a positive real number (which, as usual, is the parametric distance from the origin of the ray to the point of interest along the ray). If the ray and the plane intersect, they share a point where the line intersects the plane. If this point is \(p\), we can insert equation 2 in equation 1, and we get:
 
 $$(l_0 + l * t - p_0) \cdot n = 0 $$
 
-What we are interested in here, is to compute a value for \(t\) from which we can compute the position of this intersection point using the ray parametric equation. Solving for \(t\) we get:
+We are interested in computing a value for \(t\) from which we can calculate the position of this intersection point using the ray parametric equation. Solving for \(t\) we get:
 
 $$
 \begin{array}{l}
@@ -27,7 +27,7 @@ t = -{\dfrac{(l_0-p_0)\cdot n}{l \cdot n}} = {\dfrac{(p_0 - l_0) \cdot n}{l \cdo
 \end{array}
 $$
 
-Note that the plane and the ray are parallel when the denominator (the term \(l \cdot n\) gets close to 0\. Either the plane and the ray perfectly coincide in which case there is an infinity of solutions or the ray is away from the plane in which case there is no intersection. Generally in a C++ implementation, when the denominator is lower than a very small value, we simply return false (no intersection was found).
+Note that the plane and the ray are parallel when the denominator (the term \(l \cdot n\) gets close to 0\. Then, either the plane and the ray perfectly coincide, in which case there is an infinity of solutions, or the ray is away from the plane, where there is no intersection. Generally, in a C++ implementation, when the denominator is lower than a very small value, we return false (no intersection was found).
 
 ```
 bool intersectPlane(const Vec3f &n, const Vec3f &p0, const Vec3f &l0, const Vec3f &l, float &t)
@@ -48,7 +48,7 @@ bool intersectPlane(const Vec3f &n, const Vec3f &p0, const Vec3f &l0, const Vec3
 
 ![Figure 2: ray-disk intersection.](/images/ray-simple-shapes/disk.png?)
 
-The ray-disk intersection routine is very simple. A disk is generally defined by a position (the disk center's position), a normal, and a radius. First, we can test if the ray intersects the plane in which lies the disk. For the ray-plane intersection step, we can simply use the code we have developed for the ray-plane intersection test. If the ray intersects this plane, all we have to do is to compute the intersection point, then compute the distance from this point to this disk's center. If this distance is lower or equal to the disk radius, then the ray intersects the disk. Note that as an optimization, you can test the square of the distance against the square of the disk's radius. The square distance can be computed from the dot product of this vector (v in the code) with itself. Technically, computing the distance would require taking the square root of this dot product. However, we can also test the result of this dot product directly against the square of the radius (which is generally precomputed) to avoid using a square root operation which is expensive.
+The ray-disk intersection routine is very simple. A disk is generally defined by a position (the disk center's position), a normal, and a radius. First, we can test if the ray intersects the plane in which lies the disk. For the ray-plane intersection step, we can use the code we have developed for the ray-plane intersection test. If the ray intersects this plane, all we have to do is calculate the intersection point and the distance from this point to this disk's center. The ray intersects the disk if this distance is lower or equal to the disk radius. Note that as an optimization, you can test the square of the distance against the square of the disk's radius. The square distance can be calculated from the dot product of this vector (v in the code) with itself. Technically, computing the distance would require taking the square root of this dot product. However, we can also test the result of this dot product directly against the square of the radius (which is generally precomputed) to avoid using an expensive square root operation.
 
 ```
 bool intersectDisk(const Vec3f &n, const Vec3f &p0, const float &radius, const Vec3f &l0, const Vec3 &l)

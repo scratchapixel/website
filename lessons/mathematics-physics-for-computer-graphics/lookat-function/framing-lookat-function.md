@@ -1,5 +1,5 @@
 <details>
-In this short lesson, we will study a simple but useful method to place 3D cameras. To understand this lesson, you will need to be familiar with the concept of transformation matrix and cross-product between vectors. If that's not already the case, you might want to read the lesson [Geometry](lessons/mathematics-physics-for-computer-graphics/geometry) first.
+In this short lesson, we will study a simple but useful method to place 3D cameras. To understand this lesson, you will need to be familiar with the concept of transformation matrix and cross-product between vectors. If that's not already the case, you might want to read the lesson [Geometry](/lessons/mathematics-physics-for-computer-graphics/geometry/) first.
 </details>
 
 ## Placing the Camera
@@ -18,7 +18,7 @@ Before we get any further, however, let's address an issue that can be a source 
 
 Therefore quite naturally, when we think of creating a new camera, it feels normal to orient the camera as if we were looking at the right-hand coordinate system with the z-axis pointing towards the camera (as shown in the image above). Because by convention cameras are oriented that way, books (e.g. Physically Based Rendering / PBRT) sometimes suggest that this is because cameras are not defined in a right-hand coordinate system but a left-hand one. If you look down the z-axis, a left-hand coordinate system is one in which the z-axis points away from you (in the same direction as the line of sight). Assuming the right-hand coordinate is the rule, why should we make an exception for cameras? This explanation is not inaccurate as such, it is nonetheless potentially a source of confusion.
 
-We prefer to say that cameras are using a right-hand coordinate system like all the other objects in our 3D application. However, we do flip the orientation of the camera at render time, by "scaling" the ray direction by -1 along the camera's local coordinate z-axis when we cast rays into the scene. If you check the lesson [Ray-Tracing: Generating Camera Rays](lessons/3d-basic-rendering/ray-tracing-generating-camera-rays/generating-camera-rays) you will notice that the ray-direction z-component is set to -1 before the ray direction vector is itself transformed by the camera-to-world matrix. This is not _stricto sensu_ a scaling. We just flip the direction of the ray direction vector along the camera's local coordinate system z-axis.
+We prefer to say that cameras are using a right-hand coordinate system like all the other objects in our 3D application. However, we do flip the orientation of the camera at render time, by "scaling" the ray direction by -1 along the camera's local coordinate z-axis when we cast rays into the scene. If you check the lesson [Ray-Tracing: Generating Camera Rays](/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays/generating-camera-rays) you will notice that the ray-direction z-component is set to -1 before the ray direction vector is itself transformed by the camera-to-world matrix. This is not _stricto sensu_ a scaling. We just flip the direction of the ray direction vector along the camera's local coordinate system z-axis.
 
 ![](/images/lookat/look-at-setup1.png?)
 
@@ -30,7 +30,7 @@ Bottom line: if you use a right-hand coordinate system for your application, to 
 
 ![Figure 2: computing the forward vector from the position of the camera and target point.](/images/lookat/look-at-3.png?)
 
-Remember that a 4x4 matrix encodes the three axes of a Cartesian coordinate system. If this is not obvious to you, please read the lesson on [Geometry](/lessons/mathematics-physics-for-computer-graphics/geometry). Remember that there are two conventions you need to pay attention to when you deal with matrices and coordinate systems. For matrices, you need to choose between row-major and column-major representations. Let's use the **row-major** notation. As for the coordinate system, you need to choose between the right-hand and the left-hand coordinate systems. Let's use a **right-hand** coordinate system. The fourth row of the 4x4 matrix (in a row-major matrix representation) encodes translation values.
+Remember that a 4x4 matrix encodes the three axes of a Cartesian coordinate system. If this is not obvious to you, please read the lesson on [Geometry](/lessons/mathematics-physics-for-computer-graphics/geometry/). Remember that there are two conventions you need to pay attention to when you deal with matrices and coordinate systems. For matrices, you need to choose between row-major and column-major representations. Let's use the **row-major** notation. As for the coordinate system, you need to choose between the right-hand and the left-hand coordinate systems. Let's use a **right-hand** coordinate system. The fourth row of the 4x4 matrix (in a row-major matrix representation) encodes translation values.
 
 $$
 \begin{matrix}

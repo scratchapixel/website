@@ -1,2 +1,4 @@
 @Ray-Tracing a Polygon Mesh
 polygon-to-triangle-mesh.md:From Polygon to Triangle Mesh
+ray-tracing-polygon-mesh-part-1.md:Ray-Tracing a Polygon Mesh (Part 1)
+ray-tracing-polygon-mesh-part-2.md:Ray-Tracing a Polygon Mesh (Part 2)

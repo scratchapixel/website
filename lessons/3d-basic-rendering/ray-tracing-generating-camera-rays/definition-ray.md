@@ -1,10 +1,10 @@
 ## Prerequisites
 
-Most of the techniques we will be studying from that lesson onwards will use what we learned about points, vectors, matrices, cameras, and trigonometry in the lesson on [Geometry](lessons/mathematics-physics-for-computer-graphics/geometry). We will reuse a lot of the things we learned in the lesson [Computing the Pixel of a 3D Point](lessons/3d-basic-rendering/3d-viewing-pinhole-camera) about the different coordinates systems vertices and vectors can be transformed into. You should also be familiar with the concepts studied in the lesson [3D Viewing: the Pinhole Camera Model](lessons/3d-basic-rendering/3d-viewing-pinhole-camera). Be sure you have covered these grounds first before you start reading this lesson.
+Most of the techniques we will be studying from that lesson onwards will use what we learned about points, vectors, matrices, cameras, and trigonometry in the lesson on [Geometry](/lessons/mathematics-physics-for-computer-graphics/geometry/). We will reuse a lot of the things we learned in the lesson [Computing the Pixel of a 3D Point](/lessons/3d-basic-rendering/3d-viewing-pinhole-camera/) about the different coordinates systems vertices and vectors can be transformed into. You should also be familiar with the concepts studied in the lesson [3D Viewing: the Pinhole Camera Model](/lessons/3d-basic-rendering/3d-viewing-pinhole-camera/). Be sure you have covered these grounds first before you start reading this lesson.
 
 ## What Is This Lesson About?
 
-In the introductory lesson on [Ray-Tracing](lessons/3d-basic-rendering/ray-tracing-overview), we already quickly mentioned how ray-tracing can be used to solve the visibility problem. Let's recall that visible surface determination in the context of 3D rendering is the process used to determine which parts of the scene geometry are visible through the camera. We can use ray tracing to compute visibility (this process was already explained in the previous lesson) by casting a ray through each pixel in the image and looking for the nearest object that this ray intersects (if any). Let's also recall that ray tracing is a technique for computing intersections between rays and surfaces. Using ray-tracing to compute visibility is also called **ray-casting**.
+In the introductory lesson on [Ray-Tracing](/lessons/3d-basic-rendering/ray-tracing-overview/), we already quickly mentioned how ray-tracing can be used to solve the visibility problem. Let's recall that visible surface determination in the context of 3D rendering is the process used to determine which parts of the scene geometry are visible through the camera. We can use ray tracing to compute visibility (this process was already explained in the previous lesson) by casting a ray through each pixel in the image and looking for the nearest object that this ray intersects (if any). Let's also recall that ray tracing is a technique for computing intersections between rays and surfaces. Using ray-tracing to compute visibility is also called **ray-casting**.
 
 > Given a set of obstacles in the Euclidean space, two points in the space are said to be visible to each other if the line segment that joins them does not intersect any obstacles - definition of [visibility](http://en.wikipedia.org/wiki/Visibility_(geometry)) on Wikipedia.
 
@@ -39,7 +39,7 @@ In this chapter, we will learn a few useful things about rays. In the next chapt
 
 ![Figure 1: a ray is defined by an origin and a direction.](/images/ray-tracing-camera/ray.png?)
 
-As stated in the [previous lesson](lessons/3d-basic-rendering/ray-tracing-overview/light-transport-ray-tracing-whitted),
+As stated in the [previous lesson](/lessons/3d-basic-rendering/ray-tracing-overview/light-transport-ray-tracing-whitted),
 
 > Ray-tracing is a technique used to compute the visibility between points. It is simply a technique based on the concept of a ray which can be mathematically (and in a computer program) defined as a point (the origin of the ray in space) and a direction. Then the idea behind ray tracing is to find mathematical solutions to compute the intersection of this ray with various types of geometry: triangles, quadrics (which we study in one of the following lessons), NURBs, etc. This is all there is to ray tracing.
 

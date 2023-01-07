@@ -116,7 +116,7 @@ It accounts for the amount of light that's coming from a particular light direct
 But we haven't yet introduced the term right after the integral sign: \(p(x, \omega, \omega')\). It is called **the phase function** and we will explain what it is next. But before that, let's put in words what this equation says. The integral with the symbol $S^2$ (which in the literature you will also eventually see written as \(\Omega_{4\pi}\)) means that the in-scattering contribution can be computed by taking into account light coming from all directions over the entire sphere $S^2$ of directions.
 
 <details>
-To compute the appearance of solid objects, we use functions called BRDFs that gather light over the hemisphere of directions instead. For solid objects, we don't care about light coming from "under" the surface - except for translucent materials, but well, that's another long story. If you are interested in this topic please check lessons that are related to shading such as [global illumination](lessons/3d-basic-rendering/global-illumination-path-tracing") or [the mathematics of shading](lessons/mathematics-physics-for-computer-graphics/mathematics-of-shading)). Let's now get back to the phase functions.
+To compute the appearance of solid objects, we use functions called BRDFs that gather light over the hemisphere of directions instead. For solid objects, we don't care about light coming from "under" the surface - except for translucent materials, but well, that's another long story. If you are interested in this topic please check lessons that are related to shading such as [Global Illumination and Path Tracing](/lessons/3d-basic-rendering/global-illumination-path-tracing/) or [The Mathematics of Shading](/lessons/mathematics-physics-for-computer-graphics/mathematics-of-shading/)). Let's now get back to the phase functions.
 </details>
 
 ![Figure 1: isotropic (light is scattered in all directions over the sphere of directions) vs anisotropic phase function (light is not uniformly distributed over the sphere of directions).](/images/volume-rendering-developers/voldev-iso-anisotropic.png)
@@ -153,12 +153,12 @@ The phase function for isotropic volumes is quite simple. Let's look at another 
 
 $$f_p(x, g, \cos\theta) = {1 \over {4\pi}}{{1-g^2}\over{(1 + g^2 - 2g\cos\theta)^{3/2}}}$$
 
-![Figure 3: plot of the Henyey-Greenstein ([polar coordinates](https://en.wikipedia.org/wiki/Polar_coordinate_system)) phase function for different values of the asymmetry factor g (g=0.3, 0.5, 0, -03, -0.5). The angle $\theta$ is defined over the range [0, $\pi$].](/images/volume-rendering-developers/voldev-phasefuncplot.png)
+![Figure 3: plot of the Henyey-Greenstein phase function in the polar coordinate system for different values of the asymmetry factor g (g=0.3, 0.5, 0, -03, -0.5). The angle \(\theta\) is defined over the range [0, \(\pi\)].](/images/volume-rendering-developers/voldev-phasefuncplot.png)
 
 It's a little bit more complex indeed. And as you can it has another variable \(g\) called the **asymmetry factor**, where \(-1 \leq g \leq 1\). This parameter lets you control whether light is scattered in the forward or backward direction. When \(g \gt 0\) light is out-scattered mostly forward. When \(g \lt 0\), it is scattered backward. And when \(g = 0\), the function equals \(1/{4\pi}\), the phase function for isotropic volumes. Figure 3 shows what the function looks like for different values of \(g\).
 
 <details>
-If you want proof that this function is normalized over the sphere of directions, here it is. First, don't forget we need to integrate the function over the sphere of directions (over \(4\pi\) steradians) because our directions here say \(d\omega\) are defined in terms of differential solid angle. We can write differential solid angles \(d\omega\) in terms of \(\phi\) (longitude) and \(\theta\) (latitude) as explained in the lesson [Introduction to Shading](lessons/3d-basic-rendering/introduction-to-shading/diffuse-lambertian-shading). So we get: 
+If you want proof that this function is normalized over the sphere of directions, here it is. First, don't forget we need to integrate the function over the sphere of directions (over \(4\pi\) steradians) because our directions here say \(d\omega\) are defined in terms of differential solid angle. We can write differential solid angles \(d\omega\) in terms of \(\phi\) (longitude) and \(\theta\) (latitude) as explained in the lesson [Introduction to Shading](/lessons/3d-basic-rendering/introduction-to-shading/diffuse-lambertian-shading). So we get: 
 
 $$\int^{2\pi} \Big\{ \int_0^\pi p(\theta) \sin \theta d \theta \Big\} d\phi.$$
 
@@ -185,7 +185,7 @@ $${{1-g^2}\over{(1 + g^2 - 2g\mu)^{3/2}}}.$$
 xx finish this bit xx
 </details>
 
-Other phase functions exist such as the Schlick, Rayleigh, or Lorenz-Mie scattering phase functions. They've been designed to fit the behavior of different types of particles. For example, it's better to use the Rayleigh function when you attempt to render volumes that are made of tiny particles (smaller than the light wavelength) whereas the Mie function is better for larger particles (dust, water drops, etc.). The Henyey-Greenstein is often used in production rendering, the kind of rendering we do for movies because it's quick to compute (others can be less so) and also simple to sample (see the lesson on [Monte Carlo Simulation](lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/monte-carlo-simulation) for example).
+Other phase functions exist such as the Schlick, Rayleigh, or Lorenz-Mie scattering phase functions. They've been designed to fit the behavior of different types of particles. For example, it's better to use the Rayleigh function when you attempt to render volumes that are made of tiny particles (smaller than the light wavelength) whereas the Mie function is better for larger particles (dust, water drops, etc.). The Henyey-Greenstein is often used in production rendering, the kind of rendering we do for movies because it's quick to compute (others can be less so) and also simple to sample (see the lesson on [Monte Carlo Simulation](/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/monte-carlo-simulation) for example).
 
 Finally, here is what it looks like when we add the Henyey-Greenstein phase function to our code (feel free to implement other functions):
 
@@ -211,7 +211,7 @@ vec3 integrate(...)
             result += density * sigma_s * <span style="color: red; font-weight: bold; background-color: rgba(255,0,0,0.1);">phase(g, cos_theta)</span> * light_attenuation * light_color * step_size;
         }
         ...
-     }
+    }
     ...
 }
 ```
@@ -250,7 +250,7 @@ Where `rand()` is a function that returns a uniformly distributed number in the 
 Stochastic sampling is a Monte Carlo technique in which we sample the function at appropriate non-uniformly spaced locations rather than at regularly spaced locations.
 !!!
 
-We can't say that this is better (hence the quotes around "fixing the issue"), because we now replace banding with noise, which is a problem on its own. Still, the result is visually more pleasing than banding. You can reduce this noise using more elaborate ways of generating sequences of "random" numbers (see for example quasi Monte-Carlo methods). However, in this version of the lesson, we will skip this topic; an entire book can be written about that (for now, you can find some information on this method in the lesson [Monte Carlo in Practice](lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/introduction-quasi-monte-carlo)).
+We can't say that this is better (hence the quotes around "fixing the issue"), because we now replace banding with noise, which is a problem on its own. Still, the result is visually more pleasing than banding. You can reduce this noise using more elaborate ways of generating sequences of "random" numbers (see for example quasi Monte-Carlo methods). However, in this version of the lesson, we will skip this topic; an entire book can be written about that (for now, you can find some information on this method in the lesson [Monte Carlo in Practice](/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/introduction-quasi-monte-carlo)).
 
 ## Break From the Ray Marching Loop When Opaque (Optimization)
 
@@ -271,7 +271,7 @@ for (int n = 0; n < ns; ++ns) {
 
 Now you can stop ray-marching when we pass this transparency test and do nothing else however this would be "statistically" wrong. This would somehow introduce some bias in your rendered image. This is more easily understood if you look at figure xx. As you can see, the red line indicates the threshold below which we stop ray-marching. If we do so, we sort of remove the contribution of the volume that's below and beyond the curve (along the x-axis). Sure, the amount is somehow "negligible" and that's why we decided to implement that cutoff solution in the first place, however, if you are a thermonuclear engineer trying to simulate how neutrons move through a plate, this is not acceptable. So how can we still take advantage of this optimization while still satisfying the thermonuclear engineer's expectations?
 
-The method we will be using is called the **Russian roulette** which we have already talked about already in the lesson dedicated to [Monte Carlo methods](lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/monte-carlo-simulation). The idea is to apply the Russian roulette technique when the transparency value is lower than some threshold for example 1e-3. Then we pick a random number (uniformly distributed) in the range [0, 1] and test whether this random number is greater than 1/d where d is some positive real number (integer but doesn't have to be) greater than 1 (it can be equal to 1 but the test would be useless then). If this is the case, we break out from the loop, otherwise, we continue, however, we multiply the current transparency value by d. The value d here represents the likelihood that we will pass the test. For example for d = 5, the "chances" of the ray-marching loop being terminated would be 4 out of 5.
+The method we will be using is called the **Russian roulette** which we have already talked about already in the lesson dedicated to [Monte Carlo methods](/lessons/mathematics-physics-for-computer-graphics/monte-carlo-methods-in-practice/monte-carlo-simulation). The idea is to apply the Russian roulette technique when the transparency value is lower than some threshold for example 1e-3. Then we pick a random number (uniformly distributed) in the range [0, 1] and test whether this random number is greater than 1/d where d is some positive real number (integer but doesn't have to be) greater than 1 (it can be equal to 1 but the test would be useless then). If this is the case, we break out from the loop, otherwise, we continue, however, we multiply the current transparency value by d. The value d here represents the likelihood that we will pass the test. For example for d = 5, the "chances" of the ray-marching loop being terminated would be 4 out of 5.
 
 This makes (hopefully sense). If the random number is lower than 1/d you kill say the photon. It's gone. You can't do anything with it anymore. But in exchange for killing it, we will give more power to the ones that survived the test (increase the transparency value in our case), Inversely proportionally to the likelihood of photons being killed. Here is the idea put into code:
 
@@ -466,7 +466,7 @@ The source code for this chapter is available at the end of the lesson. And it s
 
 - You can test that the russian roulette method works?
 - Make the code work for an arbitrary number of lights?
-- Move the camera around using matrices. Deform the volume sphere using matrices as well (try to squeeze/squash the sphere). You can find some clues on how to do that in this lesson: [Transform Objects using Matrices](lessons/3d-basic-rendering/transforming-objects-using-matrices).
+- Move the camera around using matrices. Deform the volume sphere using matrices as well (try to squeeze/squash the sphere). You can find some clues on how to do that in this lesson: [Transform Objects using Matrices](/lessons/3d-basic-rendering/transforming-objects-using-matrices/).
 - Make it work with the camera inside the volume.
 - Replace the sphere with a cube.
 - Add a timer, to measure how slow volume rendering is. This will be most noticeable in the next chapter.

@@ -2,7 +2,7 @@
 
 ## Light Transport
 
-In a typical scene, light is likely to bounce off of the surface of many objects before it reaches the eye. As explained in the [previous chapter](http://localhost/lessons/3d-basic-rendering/rendering-3d-scene-overview/light-simulator), the direction in which light is reflected depends on the material type (is it diffuse, specular, etc.), thus light paths are defined by all the successive materials the light rays interact with on their way to the eye.
+In a typical scene, light is likely to bounce off of the surface of many objects before it reaches the eye. As explained in the [previous chapter](/lessons/3d-basic-rendering/rendering-3d-scene-overview/light-simulator), the direction in which light is reflected depends on the material type (is it diffuse, specular, etc.), thus light paths are defined by all the successive materials the light rays interact with on their way to the eye.
 
 ![Figure 1: light paths.](/images/rendering-3d-scene-overview/lightpath.png?)
 
