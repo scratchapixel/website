@@ -199,12 +199,12 @@ That seems like it needs to be corrected since we started from the point with co
 $$
 R_z=
 \begin{bmatrix}
-\cos(-{\pi \over 2}) & \sin(-{\pi \over 2}) & 0 \\
--\sin(-{\pi \over 2}) & \cos(-{\pi \over 2}) & 0 \\
+\cos(-{\pi \over 2}) & -\sin(-{\pi \over 2}) & 0 \\
+\sin(-{\pi \over 2}) & \cos(-{\pi \over 2}) & 0 \\
 0 & 0 & 1 \\
 \end{bmatrix}=
 \begin{bmatrix}
-0 & -1 & 0 \\ 1 & 0 & 0 \\
+0 & 1 & 0 \\ 1 & 0 & 0 \\
 0 & 0 & 1 \\
 \end{bmatrix}
 $$
@@ -227,8 +227,8 @@ We know that the points in the xy plane should stay in the xy plane if we rotate
 $$
 R_z(\theta)=
 \begin{bmatrix}
- \cos(\theta) & \sin(\theta) & 0\\
--\sin(\theta) & \cos(\theta) & 0\\
+ \cos(\theta) & -\sin(\theta) & 0\\
+\sin(\theta) & \cos(\theta) & 0\\
 0 & 0 & 1
 \end{bmatrix}
 $$
@@ -239,25 +239,25 @@ $$
 R_x(\theta)=
 \begin{bmatrix} 
 1 & 0 & 0 \\
-0 & \cos(\theta) & \sin(\theta) \\
-0 & -\sin(\theta) & \cos(\theta) \\
+0 & \cos(\theta) & -\sin(\theta) \\
+0 & \sin(\theta) & \cos(\theta) \\
 \end{bmatrix}
 $$
 
 $$
 R_y(\theta)=
 \begin{bmatrix}
-\cos(\theta) & 0 & -\sin(\theta) \\
+\cos(\theta) & 0 & \sin(\theta) \\
 0 & 1 &  0 \\
-\sin(\theta) & 0 & \cos(\theta) \\ 
+-\sin(\theta) & 0 & \cos(\theta) \\ 
 \end{bmatrix}
 $$
 
 $$
 R_z(\theta)=
 \begin{bmatrix}
- \cos(\theta) & \sin(\theta) & 0\\
--\sin(\theta) & \cos(\theta) & 0\\
+ \cos(\theta) & -\sin(\theta) & 0\\
+\sin(\theta) & \cos(\theta) & 0\\
 0 & 0 & 1 \\ \end{bmatrix}
 $$
 
