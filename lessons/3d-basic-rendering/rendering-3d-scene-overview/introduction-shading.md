@@ -48,7 +48,7 @@ Simulating light-matter interactions to get a result is complex, but hopefully, 
 
 The law of reflection for example which we introduced in a previous chapter, can be written as: 
 
-$$\omega_r = \omega_i - 2(N . \omega_i) N$$
+$$\omega_r = \omega_i - 2(N \cdot \omega_i) N$$
 
 In plain English, it says that the reflection direction \(\omega_r\), can be computed as \(\omega_i\) minus two times the dot product between N (the surface normal at the point of incidence) and \(\omega_i\) (the incident light direction) multiplied by N. This equation has more to do with computing a direction than the amount of light reflected by the surface. However if for any given incident direction (\(\omega_i\)), you find out that \(\omega_r\) coincides with \(\omega_v\) (the view direction) then clearly, the ratio of reflected light for this particular configuration is 1 (figure 3 - top). If \(\omega_r\) and \(\omega_v\) are different though, then the amount of reflected light would be 0. To formalize this idea, you can write:
 
